@@ -1,28 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <%- include('./partials/head'); %>
+        <%- include('./partials/head'); %>
     </head>
-    <body class="container">
-
-        <header>
-        <%- include('./partials/header'); %>
-        </header>
-
-        <main>
-            <div class="jumbotron">
-                <% if (kindOfDay === "Weekend") { %>
-                    <h1 style="color:red" >Yay! It's the weekend!</h1> 
-                %>
-                <% } else { %>
-                    <h1 style="color:blue" >Boo! I have to work!</h1>   
-                <% }; %>    
-                <h1><%= day %>'s ToDo List</h1>
-            </div>
-        </main>
-
-        <footer>
-            <%- include('./partials/footer'); %>
-        </footer>
+    <body>
+        <div class="box" id="heading">
+            <h1><%= day %></h1>
+        </div>
+        <div class="box">
+            <%- include('./partials/list-group', {listItems: newListItems}); %>
+            <%- include('./partials/form'); %>
+        </div>    
     </body>
 </html>
